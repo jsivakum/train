@@ -1,0 +1,40 @@
+<h1>Train System</h1>
+
+<p>Create a new line:</p>
+
+<form action="/lines" method="post">
+  <label for="name">Assign a name to your line:</label>
+  <input id="name" name="name" type="text" placeholder="A train-line name" autofocus>
+
+  <button type="submit">Add train line name</button>
+</form>
+
+<% if @lines.any?() %>
+<ul>
+  <% @lines.each do |line| %>
+  <li><a href="/lines/<%= line.id() %>"> <%= line.name() %> </a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no train lines yet!</p>
+<% end %>
+
+
+<p>Create a new station:</p>
+
+<form action="/stations" method="post">
+  <label for="name">Assign a name to your station:</label>
+  <input id="name" name="name" type="text" placeholder="A train-station name" autofocus>
+
+  <button type="submit">Add train station name</button>
+</form>
+
+<% if @stations.any?() %>
+<ul>
+  <% @stations.each do |station| %>
+  <li><a href="/stations/<%= station.id() %>"> <%= station.name() %> </a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no train stations yet!</p>
+<% end %>
